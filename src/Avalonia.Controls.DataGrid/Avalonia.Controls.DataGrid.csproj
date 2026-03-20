@@ -3,7 +3,10 @@
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <TargetFrameworks>$(AvsCurrentTargetFramework);$(AvsLegacyTargetFrameworks)</TargetFrameworks>
+<<<<<<< Updated upstream
     <IsPackable>true</IsPackable>
+=======
+>>>>>>> Stashed changes
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
@@ -12,15 +15,13 @@
     <AvaloniaXaml Include="Themes/**/*.xaml" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
-  </ItemGroup>
-
   <ItemGroup Label="InternalsVisibleTo">
     <InternalsVisibleTo Include="Avalonia.Controls.DataGrid.UnitTests, PublicKey=$(AvaloniaPublicKey)" />
     <InternalsVisibleTo Include="Avalonia.DesignerSupport, PublicKey=$(AvaloniaPublicKey)" />
   </ItemGroup>
 
+  <Import Project="../../../../build/ReferenceCoreLibraries.props" />
+  <Import Project="../../../../build/BuildTargets.targets" />
   <Import Project="../../build/SharedVersion.props" />
 
   <Target Name="UpdateCIBuildNumber"
